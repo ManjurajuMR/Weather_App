@@ -14,4 +14,5 @@ export class Constants {
     public static home = 'HOME';
     public static favourite = 'FAVOURITE';
     public static recentSearch = 'RECENT SEARCH';
+    
 }
