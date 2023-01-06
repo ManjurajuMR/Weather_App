@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url("./assets/Web/01_Home/background/background.png");
+
+    /* Full height */
+    /* height: 100vh;  */
+    /* Center and scale the image nicely */
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;   
+    padding: 1rem 5rem;   
+    overflow:visible;
+    font-family: 'Arial';
+}
+
+@media only screen and (max-width: 750px) {
+    body{
+        padding: 1rem 3rem;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    body{
+        padding: 1rem 1rem;
+    }
+  }

@@ -1,0 +1,70 @@
+<div class="container" *ngIf="!isFavDataListEmpty()">
+
+    <div class="noDataToDisplay">
+        <div class="noDataToDisplay-image">
+            <img src="../assets/Web/03_Favourite_blank/Group 38/Group 3/icon_nothing.png" alt="NothingToDisplay">
+        </div>
+        <div class="noDataToDisplay-text">
+            <p>{{constant.noFavouriteAdded}}</p>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="adialog">
+        <h4 class="title">{{constant.RemovewarningMsge}}</h4>
+        <div class="yes-no d-flex justify-content-center">
+            <button type="button" class="btn" (click)="modal.close('Close click')">NO</button>
+            <button type="button" class="btn" (click)="modal.close(clearAllFavList())">YES</button>
+        </div>
+    </div>
+
+</ng-template>
+
+<div *ngIf="isFavDataListEmpty()">
+    <div class="fav-city-counts d-flex justify-content-between">
+        <div>
+            {{cityCount}} {{constant.citiesAddedToFav}}
+        </div>
+        <div class="Remove-All" (click)="openAlertBox(content)">
+            <p>  {{constant.removeAll}} </p>
+        </div>
+    </div>
+
+    <div class="favListContainer">
+        <div class="row" *ngFor="let item of favList" (click)="getWeatherByCityName(item.cityName)" routerLink="/home">
+            <div class="col-6 d-flex justify-content-between align-items-center">
+                <div class="fav-city">
+                    {{item.cityName}}
+                </div>
+                <div class="fav-loc-icon">
+                    <img id="fav-icon" src={{getImageUrl(item.image)}} alt="Mostly-Cloudy">
+                </div>
+            </div>
+            <div class="col-6 d-flex justify-content-between align-items-center">
+                <div class=" d-flex justify-content-between align-items-center">
+                    <div class="fav-temp-value">
+                        {{item.temp}}
+                    </div>
+                    <div class="fav-temp-deg">
+                        {{item.cel}}
+                    </div>
+                    <div class="fav-temp-status">
+                        {{item.description}}
+                    </div>
+                </div>
+                <div class="fav-like-icon float-end" *ngIf="isFav(item.isFav)"
+                    (click)="favToggleClick(item.cityId,item.isFav)">
+                    <img src="../assets/Web/02_Home_Favourite/Group 11/icon_favourite_Active.png" alt="favourite">
+                </div>
+                <div class="fav-like-icon float-end" *ngIf="!isFav(item.isFav)"
+                    (click)="favToggleClick(item.cityId,item.isFav)">
+                    <img src="../assets/Web/02_Home_Favourite/Group 11/icon_favourite/icon_favourite.png"
+                        alt="favourite">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

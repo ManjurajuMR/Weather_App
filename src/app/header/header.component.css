@@ -1,0 +1,99 @@
+/* header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.header .logo {
+    display: block;
+    float: left;
+
+}
+
+.header .searchBar {
+    display: block;
+    float: right;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.header .searchBar input[type="text"] {
+    padding: 13px 250px 13px 13px;
+    box-sizing: border-box;
+    /* background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    border-color: rgba(255, 255, 255, 0.3); */
+    /* color: white;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px; */
+    color: white;
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+}
+
+::-moz-placeholder {
+    color: white;
+}
+
+.search-icon {
+    /* position: absolute;
+    right: 10px;
+    bottom: 15px; */
+    background: transparent;
+    border: 0;
+    margin-right: 15px;
+}
+/* .search-result{
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    border-color: rgba(255, 255, 255, 0.3);
+} */
+.search-results{
+    scroll-behavior: auto;
+    z-index: 1115;
+    overflow-y: auto;
+    top: 100%;
+    width: 45%;
+    min-height: 0;
+    max-height: 200px;
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+}
+.search-results ul{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0;
+    /* padding: 13px 250px 13px 13px; */
+}
+
+.dropdowns .dropdown-menu{
+    margin: 0;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+    .header .searchBar input[type="text"] {
+        padding: 13px 100px 13px 13px;
+    }
+  }
+  @media only screen and (max-width: 750px) {
+    .header .searchBar input[type="text"] {
+        padding: 13px 0px 13px 13px;
+    }
+  }

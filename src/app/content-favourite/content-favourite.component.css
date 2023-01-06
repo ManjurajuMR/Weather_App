@@ -1,0 +1,86 @@
+
+.noDataToDisplay{
+    display: inline-block;
+    padding: 175px 460px;
+}
+.noDataToDisplay-text{
+    padding-top: 25px;
+    color: #fff;
+    font-size: 18px;
+}
+
+
+
+.fav-city-counts{
+    padding: 28px 0px 28px 15px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.fav-city{
+    padding: 28px 0px 28px 15px;
+}
+.fav-loc-icon #fav-icon{
+    width: 36px;
+    height: 36px;
+}
+.fav-like-icon{
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.row{
+    background: rgba(255, 255, 255, 0.1);  
+    margin-top: 1px;
+}
+.row:hover{
+    background: rgba(255, 255, 255, 0.2); 
+}
+.fav-city{
+    color: #fff;
+    font-size: 16px;
+}
+.row:hover .fav-city{
+    color:#FFE539;   
+}
+.fav-temp-value{
+    font-size: 32px;
+    color: #fff;
+}
+.fav-temp-deg{
+    margin-left: 5px;
+    color: #fff;
+    font-size: 16px;
+    padding-top: 10px;
+}
+.fav-temp-status{
+    font-size: 18px;
+    color: #fff;
+    margin-left: 32px;
+}
+
+.adialog{
+    border-radius: 2px;
+}
+.Remove-All:hover{
+    cursor: pointer;
+}
+.title{
+    margin: 58px 73px;
+    font-size: 15px;
+    color: black;
+}
+.yes-no{
+    margin: 42px 152px ;
+}
+.yes-no button{
+   padding: 8px 32px;
+   font-size: 15px;
+   color: black;
+   border-radius: 2px;
+}
+
+.yes-no button:hover{
+    color: white;
+    background-color:#F76B1C;
+}

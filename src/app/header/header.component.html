@@ -1,0 +1,23 @@
+<div class="header" style="position: relative;">
+    <div class="logo">
+        <img src="../assets/Web/01_Home/logo_web.png" alt="Weather">
+    </div>
+    <div>
+        <div type="submit" class="searchBar d-flex justify-content-between">
+
+            <input type="text" class="submit_on_enter" #myvalue id="search" autocomplete="off"
+                (keyup)="getCityList(myvalue)" name="search" placeholder="Search city">
+            <button type="submit" class="search-icon">
+                <img src="../assets/Web/01_Home/Group 2/icon_search_white.png" alt="searchIcon">
+            </button>
+
+            <div class="search-results" *ngIf="myvalue.value!= ''">
+                <ul class="dropdown-menu" style="display: block; position:sticky" *ngFor="let item of dropDownList">
+                    <li (click)="getWeatherByCords(item.lat,item.lon)" routerLink="/home" (click)="myvalue.value= ''">
+                        <span class="dropdown-item-text">{{item.name}}</span></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>

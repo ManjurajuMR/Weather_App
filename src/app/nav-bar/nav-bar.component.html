@@ -1,0 +1,17 @@
+<div class="navBlock">
+    <nav class="row justify-content-between" id="navbar">
+        <div id="container" >
+            <div>
+            <ul>
+                <li class="home"><a routerLink="/home" routerLinkActive="active">{{constant.home}}</a></li>
+                <li class="favourite"><a routerLink="/favourite" routerLinkActive="active">{{constant.favourite}}</a></li>
+                <li class="recent"><a routerLink="/recent" routerLinkActive="active">{{constant.recentSearch}}</a></li>
+
+            </ul>
+        </div>
+        <div class="date ">
+            <p id="dateTime">{{currentDateTime | date:'EEE, dd MMM y h:mm a '}}</p>
+        </div>
+    </div>
+    </nav>
+</div>

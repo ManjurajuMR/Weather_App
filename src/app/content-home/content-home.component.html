@@ -1,0 +1,46 @@
+<!-- <app-header (newItemEvent)="addItem($event)"></app-header> -->
+
+
+<div class="cityName">
+    <p id="city">{{weatherData?.name}}</p>
+  </div>
+  <div class="addtoFav-block" *ngIf="addedToFav" (click)="favToggleClick()">
+    <div id="fav-icon"><img src="../assets/Web/02_Home_Favourite/Group 11/icon_favourite_Active.png" alt="favourite"></div>
+    <div id="fav-block"><p id="fav">{{constant.addedToFav}}</p></div>
+  </div>
+  <div class="addtoFav-block" *ngIf="!addedToFav" (click)="favToggleClick()">
+    <div id="fav-icon"><img src="../assets/Web/02_Home_Favourite/Group 11/icon_favourite/icon_favourite.png" alt="favourite"></div>
+    <div id="fav-block"><p id="fav">{{constant.addToFav}}</p></div>
+  </div>
+  <div class="weather-icon-block">
+    <img src={{imageUrl}} alt="Mostly-Cloudy">
+  </div>
+  
+  <div class="tem-block">
+  <div id="num-block"><p id="tem-value">{{tempCelFar}}</p></div>
+  <div id="deg-block" class="btn-group">
+  <div id="cel-block"><button id="cel" (click)="celciusClick()">{{constant.celciusIcon}}</button></div>
+  <div id="far-block"><button id="far" (click)="faraniteClick()">{{constant.faraniteIcon}}</button></div>
+  </div>
+  </div>
+  
+  <div class="temp-status-block">
+  <p id="temp-status">{{weatherDescription}}</p>
+  </div>
+  
+  <!-- footer -->
+  <div class="bottom-block-container d-flex justify-content-between">
+    <div class="bottom-block-elements d-flex" *ngFor="let item of footerContent">
+        <div class="element-icon">
+            <img src={{item.imageSrc}} alt="imageSrc">
+        </div>
+        <div class="element-content">
+            <div class="element-header">
+                {{item.header}}
+            </div>
+            <div class="element-value">
+                {{item.header_val}}
+            </div>
+        </div>
+    </div>
+</div>
