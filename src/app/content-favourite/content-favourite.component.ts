@@ -42,7 +42,6 @@ export class ContentFavouriteComponent implements OnInit {
     }
   }
   getImageUrl(imageID: any) {
-    console.log("favim.." + imageID)
     return this.localStorage.getImageUrl(imageID);
   }
   addFav(cityID: any) {
@@ -60,7 +59,6 @@ export class ContentFavouriteComponent implements OnInit {
         isFav: true
       };
       this.oldFavList?.push(category)
-      console.log("added to fav" + this.oldFavList + category.cityName);
       this.localStorage.setFavList(JSON.stringify(this.oldFavList));
     }
   }
@@ -70,7 +68,6 @@ export class ContentFavouriteComponent implements OnInit {
     if (this.oldFavList?.some((city: any) => city.cityId === cityID)) {
       var index = this.oldFavList?.findIndex((item) => item.cityId === cityID);
       this.oldFavList?.splice(index, 1);
-      console.log("removed from fav" + this.oldFavList);
       this.localStorage.setFavList(JSON.stringify(this.oldFavList));
     }
   }
@@ -98,15 +95,12 @@ export class ContentFavouriteComponent implements OnInit {
 
 
   getWeatherByCityName(cityName: any) {
-    console.log('city./././....')
-    console.log(cityName);
     if (cityName.value != '') {
       this.sharedService.getWeatherByCityName(cityName);
     }
   }
 
   isFavDataListEmpty(){
-    console.log('isempty' + this.favList?.length ? true : false);
     return this.favList?.length ? true : false ;  
   }
 }

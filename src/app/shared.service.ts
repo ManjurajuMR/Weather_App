@@ -20,12 +20,9 @@ export class SharedService {
   }
   sendClickEvent(click: any) {
     this.subject.next(click);
-    console.log();
   }
   getClickEvent() {
-    console.log('click sent....');
     return this.subject.asObservable();
-
   }
 
   getWeatherDataByCords(lat: any, lon: any) {
@@ -33,9 +30,7 @@ export class SharedService {
       this.WeatherService.getWeatherDataByCords(lat, lon).subscribe(data => {
         this.weatherParameters = data;
         let datas = JSON.stringify(this.weatherParameters)
-        console.log("datas/././././../bycords.... = " + datas);
         this.localStore.setLastCalledCity(datas);
-        console.log(localStorage.getItem('data'));
         this.setRecentList(data);
 
         this.sendClickEvent(true);
@@ -43,34 +38,20 @@ export class SharedService {
 
     }
   }
-
-
-
 
   getWeatherByCityName(cityName: any) {
-    console.log('city./././....')
-    console.log(cityName);
     if (cityName != '') {
       this.WeatherService.getWeatherDataByCityName(cityName).subscribe(data => {
-        console.log('city')
-        console.log(data);
-        console.log('name');
         this.weatherParameters = data;
         let datas = JSON.stringify(this.weatherParameters)
-        console.log("datas/././././.... = " + datas);
         this.localStore.setLastCalledCity( datas);
-        console.log(localStorage.getItem('data'));
         this.setRecentList(data);
-
         this.sendClickEvent(true);
-        // this.localStore.saveData(this.weatherParameters?.name, "datas"); 
       })
     }
   }
 
-
   setRecentList(data: any) {
-    console.log('setting recentlist')
     let datas = JSON.stringify(data);
     let oldList = this.localStore.getRecentList();
     this.recentList = JSON.parse(oldList!!) || [];
@@ -87,10 +68,7 @@ export class SharedService {
       };
 
       this.recentList?.push(category);
-      console.log(this.recentList);
       this.localStore.setRecentList(JSON.stringify(this.recentList));
-
-      console.log('addedd...');
     } else {
       console.log('already addedd...!!!');
     }

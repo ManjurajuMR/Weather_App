@@ -17,28 +17,22 @@ export class WeatherService {
     .set('lat',lat)
     .set('lon',lon)
     .set('appId',this.apiKey)
-
     return this.http.get<WeatherParameters>(this.url , {params});
 
   }
 
   getWeatherDataByCityName(city:any){
-    console.log("service..." + city);
     let params= new HttpParams()
     .set('q',city)
     .set('appid',this.apiKey)
-
     return this.http.get<WeatherParameters>(this.url, {params});
-    // return this.http.get("https://api.openweathermap.org/data/2.5/weather?q=mandya&appid=ae6be994243d195a95b068598d294f9c");
   }
 
   getCityNames(city:any){
-    console.log("service...citynames..." + city);
     let params= new HttpParams()
     .set('q',city)
     .set('limit',10)
     .set('appid',this.apiKey)
-
     return this.http.get<DropdownCityNames>(this.cityUrl, {params});
   }
   

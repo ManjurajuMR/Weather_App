@@ -31,13 +31,6 @@
 .header .searchBar input[type="text"] {
     padding: 13px 250px 13px 13px;
     box-sizing: border-box;
-    /* background: rgba(255, 255, 255, 0.2);
-    border: 1px solid white;
-    border-color: rgba(255, 255, 255, 0.3); */
-    /* color: white;
-    font-size: 16px;
-    outline: none;
-    border-radius: 5px; */
     color: white;
     outline: none;
     background-color: transparent;
@@ -53,18 +46,11 @@
 }
 
 .search-icon {
-    /* position: absolute;
-    right: 10px;
-    bottom: 15px; */
     background: transparent;
     border: 0;
     margin-right: 15px;
 }
-/* .search-result{
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid white;
-    border-color: rgba(255, 255, 255, 0.3);
-} */
+
 .search-results{
     scroll-behavior: auto;
     z-index: 1115;

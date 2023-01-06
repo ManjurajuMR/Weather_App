@@ -46,33 +46,23 @@ export class ContentHomeComponent implements OnInit {
   // weatherParameter: WeatherParameters;
   constructor(private WeatherService: WeatherService, private localStorage: LocalService, private sharedService: SharedService) {
     this.clickEventSubsciption = sharedService.getClickEvent().subscribe(() => {
-      console.log('click received');
       this.ngOnInit();
     });
   }
   ngOnInit(): void {
     if (!this.firstLaunch) {
-      console.log('onlyset' + this.firstLaunch);
       this.setWeatherData();
-
     } else {
       this.getLocation();
-      console.log('bylocation' + this.firstLaunch);
-
     }
     this.setActiveBtnStyle("cel", "far");
     this.getFavList();
-   
   }
 
 
   getLocation() {
-    console.log('Hii....28');
     if ('geolocation' in navigator) {
-      console.log('Hii....30');
       navigator.geolocation.watchPosition((success) => {
-        console.log('Hii....32');
-        console.log(success.coords.latitude + "lon = " + success.coords.longitude);
         this.lat = success.coords.latitude;
         this.lon = success.coords.longitude;
         if (this.lat != '' && this.lon != '') {
@@ -87,14 +77,10 @@ export class ContentHomeComponent implements OnInit {
   }
 
 
-
-
-
   setWeatherData() {
     this.firstLaunch = false;
     let datas = this.localStorage.getData('latest');
     this.weatherData = JSON.parse(datas!!);
-    console.log('setting' + this.weatherData?.main.temp);
     this.weatherTemp = (this.weatherData!.main.temp - 273.15).toFixed(0);
     this.tempCelFar = this.weatherTemp;
     this.minWeatherTemp = (this.weatherData!.main.temp_min - 273.15).toFixed(0);
@@ -103,7 +89,6 @@ export class ContentHomeComponent implements OnInit {
     this.maxTempCelFar = this.maxWeatherTemp;
     this.weatherDescription = this.weatherData?.weather[0].description;
     this.imageUrl = this.localStorage.getImageUrl(this.weatherData?.weather[0].icon);
-    console.log('imageurl' + this.imageUrl);
     this.setFooterContent();
     // let cityCount = this.favData?.filter(item => item.isFav === true && item.cityId === this.weatherData?.id).length;
     this.addedToFav = this.getFavList()?.filter(item => item.cityId === this.weatherData?.id).length ? true : false;
@@ -144,7 +129,6 @@ export class ContentHomeComponent implements OnInit {
         isFav: true
       };
       this.oldFavList?.push(category)
-      console.log("added to fav" + this.oldFavList + category.cityName);
       this.localStorage.setFavList(JSON.stringify(this.oldFavList));
     }
   }
@@ -154,7 +138,6 @@ export class ContentHomeComponent implements OnInit {
     if (this.oldFavList?.some((city: any) => city.cityId === this.weatherData?.id)) {
       var index = this.oldFavList?.findIndex((item) => item.cityId === this.weatherData?.id);
       this.oldFavList?.splice(index, 1);
-      console.log("removed from fav" + this.oldFavList);
       this.localStorage.setFavList(JSON.stringify(this.oldFavList));
     }
   }

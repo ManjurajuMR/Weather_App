@@ -39,7 +39,6 @@ export class ContentRecentSearchComponent implements OnInit {
   }
 
   getImageUrl(imageID:any){
-    console.log("favim.." + imageID)
     return this.localStore.getImageUrl(imageID);
   }
 
@@ -58,7 +57,6 @@ export class ContentRecentSearchComponent implements OnInit {
         isFav: true
       };
       this.oldFavList?.push(category)
-      console.log("added to fav" + this.oldFavList + category.cityName);
       this.localStore.setFavList(JSON.stringify(this.oldFavList));
     }
   }
@@ -68,7 +66,6 @@ export class ContentRecentSearchComponent implements OnInit {
     if (this.oldFavList?.some((city: any) => city.cityId === cityID)) {
       var index = this.oldFavList?.findIndex((item) => item.cityId === cityID);
       this.oldFavList?.splice(index,1);
-      console.log("removed from fav" + this.oldFavList);
       this.localStore.setFavList(JSON.stringify(this.oldFavList));
     }
   }
@@ -84,21 +81,17 @@ export class ContentRecentSearchComponent implements OnInit {
     return this.favList;
   }
   clearAllRecentSearch() {
-    console.log('clear')
     this.localStore.clearAllRecentList();
     this.ngOnInit();
   }
 
   getWeatherByCityName(cityName: any) {
-    console.log('city./././....')
-    console.log(cityName);
     if (cityName.value != '') {
       this.sharedService.getWeatherByCityName(cityName);
     }
   }
 
   isRescentDataListEmpty(){
-    console.log('isempty' + this.rescentDataList?.length ? true : false);
     return this.rescentDataList?.length ? true : false ;  
   }
 }

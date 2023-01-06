@@ -30,9 +30,7 @@
 
 }
 
-#navbar ul li {
-    /* border-bottom: 1px solid #fff; */
-}
+
 #navbar ul li .active {
     border-bottom: 3px solid #FFD639;
 }
@@ -58,11 +56,7 @@
 
 @media only screen and (max-width: 750px) {
     #navbar ul li {
-       
         padding-inline: 0;
     }
 
-    .navBlock .date p{
-        
-    }
   }
