@@ -18,7 +18,6 @@ export class WeatherService {
     .set('lon',lon)
     .set('appId',this.apiKey)
     return this.http.get<WeatherParameters>(this.url , {params});
-
   }
 
   getWeatherDataByCityName(city:any){
